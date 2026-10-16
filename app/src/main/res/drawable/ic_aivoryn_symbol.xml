@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Primary Radiant AI Intelligence Star -->
+    <path
+        android:pathData="M54,23.6 C54,40.9 67.1,54 84.4,54 C67.1,54 54,67.1 54,84.4 C54,67.1 40.9,54 23.6,54 C40.9,54 54,40.9 54,23.6 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Central Neural Aperture (Dark Iris) -->
+    <path
+        android:pathData="M54,47.2 A6.8,6.8 0 1,0 54,60.8 A6.8,6.8 0 1,0 54,47.2 Z"
+        android:fillColor="#10141E" />
+
+    <!-- Core Focal Singularity (White Pupil) -->
+    <path
+        android:pathData="M54,51.0 A3.0,3.0 0 1,0 54,57.0 A3.0,3.0 0 1,0 54,51.0 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Satellite Synaptic Nodes -->
+    <path
+        android:pathData="M37.0,34.2 A2.8,2.8 0 1,0 37.0,39.8 A2.8,2.8 0 1,0 37.0,34.2 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M71.0,34.2 A2.8,2.8 0 1,0 71.0,39.8 A2.8,2.8 0 1,0 71.0,34.2 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M37.0,68.2 A2.8,2.8 0 1,0 37.0,73.8 A2.8,2.8 0 1,0 37.0,68.2 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M71.0,68.2 A2.8,2.8 0 1,0 71.0,73.8 A2.8,2.8 0 1,0 71.0,68.2 Z"
+        android:fillColor="#FFFFFF" />
+</vector>

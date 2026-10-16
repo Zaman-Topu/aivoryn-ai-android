@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Aivoryn AI</string>
+    <string name="tagline">Offline-First On-Device AI</string>
+    <string name="welcome_headline">Welcome to Aivoryn AI</string>
+    <string name="welcome_subtitle">Private, local GGUF intelligence running entirely on your Android device.</string>
+    <string name="no_model_title">No Model Active</string>
+    <string name="no_model_desc">To start chatting offline, import a .gguf model file using the Model Manager or select an installed model.</string>
+    <string name="action_open_model_manager">Manage Models</string>
+    <string name="action_new_chat">New Chat</string>
+    <string name="action_search_conversations">Search conversations…</string>
+    <string name="action_send">Send message</string>
+    <string name="action_stop">Stop generation</string>
+    <string name="action_attach">Attach file (TXT/PDF/Code)</string>
+    <string name="action_voice">Voice input</string>
+    <string name="action_think">Think Mode</string>
+    <string name="action_search_web">Search Mode</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_copied">Copied to clipboard</string>
+    <string name="action_regenerate">Regenerate</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_pin">Pin conversation</string>
+    <string name="action_unpin">Unpin conversation</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_unarchive">Unarchive</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_import_gguf">Import GGUF Model</string>
+    <string name="action_load_model">Load into RAM</string>
+    <string name="action_unload_model">Unload from RAM</string>
+    <string name="action_delete_model">Delete Model File</string>
+
+    <!-- Drawer headers & sections -->
+    <string name="section_pinned">Pinned</string>
+    <string name="section_today">Today</string>
+    <string name="section_yesterday">Yesterday</string>
+    <string name="section_past_7_days">Previous 7 Days</string>
+    <string name="section_older">Older</string>
+    <string name="section_archived">Archived</string>
+
+    <!-- Composer placeholders -->
+    <string name="composer_placeholder">Ask Aivoryn or enter prompt…</string>
+    <string name="composer_listening">Listening… speak now</string>
+    <string name="composer_attached">Attached: %1$s (%2$s)</string>
+
+    <!-- Model manager -->
+    <string name="models_title">GGUF Model Manager</string>
+    <string name="models_installed">Installed Local Models</string>
+    <string name="models_none_installed">No GGUF models imported yet</string>
+    <string name="models_import_instruction">Select a .gguf file from your internal storage or SD card. Recommended for this device (4GB RAM): Q4_K_M or Q3_K_S quantizations under 2.2 GB.</string>
+    <string name="model_status_loaded">Loaded in RAM</string>
+    <string name="model_status_unloaded">Ready on Storage</string>
+    <string name="model_status_active">Active</string>
+    <string name="model_status_loading">Loading model into memory…</string>
+    <string name="model_ram_warning">High RAM Warning: Models over 2.5 GB may cause low memory pressure or termination on 4GB RAM devices.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System Default</string>
+    <string name="settings_theme_light">Aivoryn Light</string>
+    <string name="settings_theme_dark">Aivoryn Dark</string>
+    <string name="settings_theme_amoled">AMOLED Black</string>
+    <string name="settings_inference_params">Inference Parameters</string>
+    <string name="settings_context_size">Context Window (Tokens)</string>
+    <string name="settings_threads">CPU Threads</string>
+    <string name="settings_temperature">Temperature</string>
+    <string name="settings_top_p">Top-P Sampling</string>
+    <string name="settings_privacy">Privacy &amp; Security</string>
+    <string name="settings_privacy_desc">All inference, messages, and models remain strictly on your local device. Zero telemetry, zero external logging.</string>
+    <string name="settings_device_diag">Device Diagnostics</string>
+    <string name="settings_storage">Storage &amp; Data</string>
+    <string name="settings_clear_all">Clear Chat History</string>
+
+    <!-- Suggestions -->
+    <string name="prompt_suggestion_1">Explain quantum computing in simple terms</string>
+    <string name="prompt_suggestion_2">Write a clean Kotlin Jetpack Compose card</string>
+    <string name="prompt_suggestion_3">Help plan a low-memory Android architecture</string>
+    <string name="prompt_suggestion_4">Summarize notes from an attached document</string>
+</resources>
