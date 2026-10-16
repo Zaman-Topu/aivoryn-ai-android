@@ -1,78 +1,124 @@
-# Aivoryn AI — Native Android Local AI Assistant
+# Aivoryn AI Android
 
-**Aivoryn AI** is a 100% offline-first, native Android application built with Kotlin, Jetpack Compose, Material 3, and Room. It is engineered specifically for local on-device inference using the **GGUF** model format and low-memory targets such as the **OPPO CPH2269** (MediaTek MT6765, ~4 GB RAM).
+<div align="center">
 
----
+![Android](https://img.shields.io/badge/Android-24%2B-3DDC84?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?logo=jetpackcompose&logoColor=white)
+![AGP](https://img.shields.io/badge/AGP-9.1.1-34A853?logo=gradle&logoColor=white)
+![License](https://img.shields.io/badge/License-Private-111827)
 
-## 📱 Target Device & Low-Memory Architecture
+**A modern native Android AI assistant built with Kotlin, Jetpack Compose, Room, and llama.cpp-ready inference architecture.**
 
-- **Primary Device Profile:** OPPO CPH2269 (Android 12, MediaTek MT6765, ~4 GB RAM)
-- **Low-Memory Mitigations:**
-  - **Bounded Context Window:** Defaults to 1024 tokens (configurable up to 2048) to prevent memory allocation blowouts.
-  - **Bounded Threading:** Defaults to 2-4 CPU threads optimal for the MT6765 big.LITTLE core structure.
-  - **Recommended Models:** Q4_K_M or Q3_K_S quantizations under 2.2 GB (e.g. Qwen2.5-1.5B, Llama-3.2-1B, SmolLM2-1.7B).
-  - **On-Demand Lifecycle:** Explicit Load/Unload memory management in the Model Manager.
-  - **OOM Safety:** Native RAM usage is guarded with clear UI warnings when free memory falls below 800 MB.
+</div>
 
 ---
 
-## 🚀 Key Features
+## ✨ Overview
 
-| Feature | Status | Description |
-| :--- | :---: | :--- |
-| **Native Kotlin & Compose UI** | ✅ Active | Material 3 interface, Light, Dark & AMOLED Black themes |
-| **Conversation Persistence** | ✅ Active | Room SQLite database with reactive `Flow` queries |
-| **History Navigation Drawer** | ✅ Active | Search, Pin/Unpin, Archive, Rename, and Delete confirmations |
-| **GGUF Binary Header Parser** | ✅ Active | Pure Kotlin binary parser reading GGUF magic, tensors, architecture & quant |
-| **GGUF Model Manager** | ✅ Active | Android Storage Access Framework (SAF) import, model deletion, RAM status |
-| **Document Attachment** | ✅ Active | Text & PDF extraction bounded to 12,000 characters |
-| **Speech-to-Text Voice Input** | ✅ Active | Android `SpeechRecognizer` with real-time waveform state |
-| **Prompt Templates** | ✅ Active | ChatML (`<\|im_start\|>`), Llama-3, Mistral, and Alpaca formats |
-| **Think Mode** | ✅ Active | Expandable step-by-step reasoning view (`<think>...</think>`) |
-| **Search Mode** | ✅ Active | Offline knowledge retrieval toggle indicator |
-| **JNI llama.cpp Bridge** | ✅ Integrated | Full native interface (`libllama_jni.so`) with token streaming callback |
+Aivoryn AI is designed as a clean, production-style Android experience for local and model-driven chat workflows.  
+It combines a Compose-first UI, local conversation storage, GGUF model metadata support, and streaming-style response generation.
 
 ---
 
-## 🛠️ Building in Android Studio
+## 🚀 Core Features
 
-1. **Prerequisites:**
-   - Android Studio Ladybug / Koala or newer
-   - JDK 17 or JDK 21
-   - Android SDK 36 (Android 12+ compatible)
-   - Android NDK (r25c+) & CMake (for building the optional native C++ library)
-
-2. **Clone & Open:**
-   ```bash
-   git clone <repo-url> AivorynAI
-   cd AivorynAI
-   ```
-   Open the root project in Android Studio.
-
-3. **Build APK via Gradle:**
-   ```bash
-   gradle assembleDebug
-   ```
-   The debug APK will be generated at:
-   `app/build/outputs/apk/debug/app-debug.apk`
-
-4. **Run Tests:**
-   ```bash
-   gradle :app:testDebugUnitTest
-   ```
+- 🧠 **Chat interface with streaming responses**
+- 💾 **Conversation persistence** with Room + Flow
+- 🗂️ **History drawer controls** (search, pin, archive, rename, delete)
+- 📦 **Model management** (active model selection and metadata tracking)
+- 📄 **Document attachment parsing** (text/PDF extraction utility)
+- 🎙️ **Voice input support** with Android SpeechRecognizer
+- 🎨 **Theme modes** with Material 3 Compose design system
+- ⚙️ **Prompt formatting pipeline** for multiple model template styles
+- 🔌 **llama.cpp JNI-ready integration path** with graceful fallback flow
 
 ---
 
-## 🧩 llama.cpp Native JNI Integration
+## 🛠️ Tech Stack
 
-The application contains the complete JNI bridge architecture in `LlamaCppInferenceEngine.kt`. When `libllama_jni.so` is present in `app/src/main/jniLibs/arm64-v8a/`, the engine dynamically binds to llama.cpp for native SIMD/NEON accelerated execution on the device CPU.
-
-If building without the native library, the app operates in header inspection mode: users can import any standard `.gguf` file, and the app will inspect the magic header, report the quant type, model architecture, tensor counts, and provide honest readiness guidance.
+- **Language:** Kotlin
+- **UI:** Jetpack Compose, Material 3
+- **Architecture:** ViewModel + Repository + Room
+- **Async:** Kotlin Coroutines + Flow
+- **Persistence:** Room, DataStore
+- **Networking/Serialization:** OkHttp, Retrofit, Moshi
+- **AI/Platform:** Firebase AI SDK (configured dependency), native llama bridge hooks
 
 ---
 
-## 🔒 Privacy & Permissions
+## 📋 Requirements
 
-- **`android.permission.RECORD_AUDIO`:** Used strictly when the microphone button is pressed for voice speech-to-text.
-- **Storage Access:** Zero-permission Android Storage Access Framework (`OpenDocument`) is used for GGUF and document imports, ensuring complete Google Play compliance.
-- **Zero Telemetry:** 100% on-device local execution. No telemetry or analytics.
+- Android Studio (latest stable recommended)
+- JDK 11+
+- Android SDK (compileSdk 36)
+- Android device/emulator running API 24+
+
+---
+
+## ⚡ Quick Start
+
+```bash
+git clone https://github.com/Zaman-Topu/aivoryn-ai-android.git
+cd aivoryn-ai-android
+./gradlew assembleDebug
+```
+
+APK output:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+Run unit tests:
+
+```bash
+./gradlew :app:testDebugUnitTest
+```
+
+---
+
+## 🔐 Configuration
+
+Environment template is available in:
+
+```text
+.env.example
+```
+
+If Gemini/Firebase AI key usage is needed, add values in `.env` based on the template notes.
+
+---
+
+## 📁 Project Structure
+
+```text
+app/src/main/java/com/example
+├── data/          # Room entities, DAOs, repositories
+├── inference/     # GGUF parsing, prompt formatting, inference engine
+├── ui/            # Compose screens, components, theme
+└── util/          # Device, document, speech, download helpers
+```
+
+---
+
+## 🔒 Privacy Notes
+
+- Audio permission is used for voice input functionality.
+- User conversation data is stored locally via Room database.
+- Model execution behavior depends on selected runtime/backend integration.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Open a pull request
+
+---
+
+## 📌 Status
+
+This project is actively evolving. UI, model runtime, and inference behavior may continue to be refined.
